@@ -26,7 +26,7 @@ echo "<SSID>
 ```
 
 + `<SSID>`: SSID of the network
-+ `<y>`: whether the network is hidden or not (y/N)
++ `<hidden>`: whether the network is hidden or not (y/N)
 + `<encryption>`: is the number in the list that corresponds to the right encryption
 + `<password>`: network password
 
