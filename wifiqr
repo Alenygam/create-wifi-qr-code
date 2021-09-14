@@ -22,11 +22,11 @@ ssid=$(echo ${ssid} | sed 's/"/\\"/g')
 
 read -p "Is Wi-Fi SSID hidden [y, N] (if you don't know it's probably not hidden) " hiddenInput
 
-echo "Which encryption do you have (if you don't know it's probably WPA/WPA2)"
-echo "  1) WPA/WPA2"
-echo "  2) WEP"
-echo "  3) None"
-echo "Type the number of the correct option: "
+echo -e "Which encryption do you have (if you don't know it's probably WPA/WPA2) \n\
+  1) WPA/WPA2\n\
+  2) WEP\n\
+  3) None\n\
+Type the number of the correct option: "
 read encryptionn
 
 case $encryptionn in
