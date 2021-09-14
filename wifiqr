@@ -51,9 +51,10 @@ case $hiddenInput in
 esac
 
 qrstring="WIFI:S:${ssid};T:${encryption};P:${password};H:${hidden};"
-[[ $1 =~ ^-f=.* ]] && filepath=$(echo $1 | cut -d "=" -f2)
+filepath=$(echo $1 | cut -d "=" -f2)
+echo $filepath
 
-if [[ -z $filepath ]];
+if [ -z $filepath ];
 then
   echo $qrstring | qr;
 else
