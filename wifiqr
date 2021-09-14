@@ -12,21 +12,17 @@
 
 echo "Wi-Fi SSID (Network name)"
 read ssidInput
-# There totally is a better way of doing this but I'm a complete idiot and I didn't have time
-# to research the better way
-ssid=$(echo ${ssidInput} | sed 's/\\/\\\\/g')
-ssid=$(echo ${ssid} | sed 's/;/\\;/g')
-ssid=$(echo ${ssid} | sed 's/,/\\,/g')
-ssid=$(echo ${ssid} | sed 's/:/\\:/g')
-ssid=$(echo ${ssid} | sed 's/"/\\"/g')
+ssid=$(echo ${ssidInput} | sed -e 's/\\/\\\\/g' -e 's/;/\\;/g' -e 's/,/\\,/g' -e 's/:/\\:/g' -e 's/"/\\"/g')
 
 read -p "Is Wi-Fi SSID hidden [y, N] (if you don't know it's probably not hidden) " hiddenInput
 
-echo -e "Which encryption do you have (if you don't know it's probably WPA/WPA2) \n\
-  1) WPA/WPA2\n\
-  2) WEP\n\
-  3) None\n\
-Type the number of the correct option: "
+cat <<- EOF
+Which encryption do you have (if you don't know it's probably WPA/WPA2)
+  1) WPA/WPA2
+  2) WEP
+  3) None
+Type the number of the correct option:
+EOF
 read encryptionn
 
 case $encryptionn in
@@ -36,13 +32,7 @@ case $encryptionn in
   *) echo "You didn't provide a valid encryption."; exit 1;;
 esac
 [ "$encryption" != "nopass" ] && read -p "Wi-Fi Password (leave blank for open network) " passwordInput
-# There totally is a better way of doing this but I'm a complete idiot and I didn't have time
-# to research the better way
-password=$(echo ${passwordInput} | sed 's/\\/\\\\/g')
-password=$(echo ${password} | sed 's/;/\\;/g')
-password=$(echo ${password} | sed 's/,/\\,/g')
-password=$(echo ${password} | sed 's/:/\\:/g')
-password=$(echo ${password} | sed 's/"/\\"/g')
+password=$(echo ${passwordInput} | sed -e 's/\\/\\\\/g' -e 's/;/\\;/g' -e 's/,/\\,/g' -e 's/:/\\:/g' -e 's/"/\\"/g')
 
 case $hiddenInput in
   y|Y) hidden=true ;;
