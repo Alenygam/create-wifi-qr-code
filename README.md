@@ -6,7 +6,7 @@ Simple bash script that builds upon the qr pip package.
 
 ### arguments
 
-+ `-o=<file>.png`: path of output qr code image. This argument is not required, 
++ `-f=<file>.png`: path of output qr code image. This argument is not required, 
 by default the image is displayed on stdout
 
 ### If ran unpiped
